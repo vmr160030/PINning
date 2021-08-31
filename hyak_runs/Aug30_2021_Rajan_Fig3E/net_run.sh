@@ -8,8 +8,8 @@
 
 ## The account and partition options should be the same except in a few cases (e.g. ckpt queue and genpool queue).
 
-#SBATCH --account=vyomr
-#SBATCH --partition=vyomr
+#SBATCH --account=stf
+#SBATCH --partition=stf
 
 ## Resources
 
@@ -37,7 +37,7 @@
 
 ## Specify the working directory for this job
 
-#SBATCH --chdir='/usr/lusers/vyomr/Fairhall_code/PINning/hyak_runs/Aug30_2021_Rajan_Fig3E/
+#SBATCH --chdir=/usr/lusers/vyomr/Fairhall_code/PINning/hyak_runs/Aug30_2021_Rajan_Fig3E/
 
 ##turn on e-mail notification
 
