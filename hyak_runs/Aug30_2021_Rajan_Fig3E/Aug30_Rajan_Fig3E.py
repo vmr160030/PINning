@@ -10,6 +10,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 import pandas as pd
+import sys
+sys.path.append('/usr/lusers/vyomr/Fairhall_code/PINning/')
 
 import PIN_ntwk as pn
 from utils import kth_diag_indices, generate_target_seq
