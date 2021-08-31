@@ -31,9 +31,11 @@ c_net = pn.PIN_ntwk(N_neurons, tau_neuron, duration, dt, n_timesteps,
 c_net.generate_frozen_external_input(tau_wn=1*b2.second, h0_wn=1)
 c_net.generate_weights()
 
+print('Training . . .')
 c_net.train(arr_target_fx=arr_rates_ideal, p_plastic=0.2, alpha=1, n_training_steps=500, n_plot_every=50,
             rule='rate', seed=0)
 plt.savefig('/usr/lusers/vyomr/Fairhall_code/PINning/hyak_runs/Aug30_2021_Rajan_Fig3E/training.png', bbox_inches='tight')
+print('Done!')
 
 # Save learned weights
 np.savetxt('/usr/lusers/vyomr/Fairhall_code/PINning/hyak_runs/Aug30_2021_Rajan_Fig3E/arr_J_learned.txt',
