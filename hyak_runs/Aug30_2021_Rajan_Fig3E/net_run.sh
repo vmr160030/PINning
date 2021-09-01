@@ -23,7 +23,7 @@
 
 ## Walltime (3 hours). Do not specify a walltime substantially more than your job needs.
 
-#SBATCH --time=6:00:00
+#SBATCH --time=12:00:00
 
 ## Memory per node. It is important to specify the memory since the default memory is very small.
 
@@ -48,6 +48,8 @@
 ## export all your environment variables to the batch job session
 
 #SBATCH --export=all
-module load contrib/anaconda/anaconda4.4.0
+module load contrib/anaconda-2019.03
+conda init
 conda activate neuro
+source activate neuro
 python Aug30_Rajan_Fig3E.py
