@@ -42,13 +42,15 @@ class PIN_ntwk:
 
     def generate_frozen_external_input(self, tau_wn, h0_wn):
         sqrt_dt = np.sqrt(self.dt)
-        sqrt_s = np.sqrt(b2.second)  # Not sure about this implementation, might be getting lucky since tau_wn = 1s
+        sqrt_tau = np.sqrt(tau_wn)
         external_input = np.zeros((self.N_neurons, self.n_timesteps))
 
+        # Initialize at 1
+        external_input[:, 0] = 1
+        arr_normal_values = (sqrt_tau / sqrt_dt) * self.rng.standard_normal((self.N_neurons, self.n_timesteps))
         for idx_t in range(1, self.n_timesteps):
             h = external_input[:, idx_t - 1]
-            external_input[:, idx_t] = h + self.dt * (-h / tau_wn) + \
-                                       h0_wn * self.rng.normal(size=self.N_neurons) * sqrt_dt / sqrt_s
+            external_input[:, idx_t] = h + self.dt * (-h + h0_wn * arr_normal_values[:, idx_t]) / tau_wn
 
         self.external_input = external_input
 
